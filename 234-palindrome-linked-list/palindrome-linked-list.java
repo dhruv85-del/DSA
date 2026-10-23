@@ -10,9 +10,9 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
+        //find Middle
         ListNode slow=head;
         ListNode fast=head;
-        //find middle
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
@@ -20,18 +20,19 @@ class Solution {
         //reverse
         ListNode prev=null;
         while(slow!=null){
-
-        ListNode temp=slow.next;
-        slow.next=prev;
-        prev=slow;
-        slow=temp;
+            ListNode temp=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=temp;
         }
-        //find pallindrome
+        //check pallindrome or not
         while(prev!=null){
             if(head.val!=prev.val) return false;
-            head=head.next;
-            prev=prev.next;
+            else{
+                head=head.next;
+                prev=prev.next;
+            }
         }
         return true;
-    } 
+    }
 }
