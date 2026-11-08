@@ -11,7 +11,7 @@ class Solution {
         int ans = 0;
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
-                if (grid[i][j] == 1 && rows[i] + cols[j] > 2)  // it's counted in both, so more than 2 means company
+                if (grid[i][j] == 1 && (rows[i]>1 || cols[j] > 1))  // it's counted in both, so more than 2 means company
                     ans++;
         return ans;
     }
